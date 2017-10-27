@@ -4,6 +4,22 @@ This is the program that processes YouTube videos returned from a particular sea
 
 It is being developed for the Deep Frame Interpolation project by Rutgers IEEE ML/AI.
 
+## Algorithm Overview
+The algorithm for deciding if a frame is the new frame in a scene is described as such.
+
+Let F be a series mxn matrix of uint8 values describing a video such that F[i] is the ith frame of the video.
+Let g be a function that maps mxn matrices to a real value. Let threshold be a real value. 
+
+Then, a particular frame F[t] is the first frame of a new scene if and only if
+```
+g(F[t] - F[t-1]) >= threshold
+```
+
+We must define g and threshold in such a way that the previous condition is met.
+We will decide how to define g and threshold after reviewing the literature.
+
+## License
+
 MIT License
 
 Copyright (c) 2017 Abhinav Madahar
